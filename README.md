@@ -100,7 +100,8 @@ mvn spring-boot:run
 The backend server will start and listen on port 8080
 
 #### FrontEnd (React)
-Next, navigate to frontend folder
+Next,open new terminal and navigate to frontend folder
+(assuming you are in /be folder)
 ```bash
 cd ../fe
 ```
