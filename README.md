@@ -34,7 +34,12 @@ Before you start, make sure you have installed:
 
 ```bash
 git clone https://github.com/ariefw96/naluri-circle.git
+```
+```bash
 cd naluri-circle
+```
+```bash
+git checkout master
 ```
 
 ### 2. Setup Project
