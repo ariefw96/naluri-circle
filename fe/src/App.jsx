@@ -9,14 +9,14 @@ function App() {
   const [diameter, setDiameter] = useState(0) // <-- ini untuk textbox
   const [circumference, setCircumference] = useState('')
 
-  useEffect(() => {
-
+useEffect(() => {
+  const initialize = async () => {
+    await reset();
     setDiameter(1392684);
+  };
+  initialize();
+}, []);
 
-    // return () => {
-    //   console.log('Component unmounted!');
-    // };
-  }, []);
 
   const getPi = async () => {
     try {
@@ -31,7 +31,6 @@ function App() {
     try {
       const response = await axios.get(`${backendBaseUrl}/reset`)
       setPi(response.data.pi)
-      setDiameter(0)
       setCircumference('')
     } catch (error) {
       console.error('Failed to reset Pi:', error)

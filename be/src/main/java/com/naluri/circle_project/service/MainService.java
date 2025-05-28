@@ -75,7 +75,7 @@ public class MainService {
         BigDecimal two = new BigDecimal(2); //2 * pi * r
         BigDecimal halfDiameter = diameter.divide(BigDecimal.TWO, 20, RoundingMode.DOWN); // because d = 2r
         BigDecimal result = two.multiply(pi).multiply(halfDiameter);
-        return result.setScale(6, RoundingMode.DOWN);
+        return result.setScale(6, RoundingMode.DOWN).stripTrailingZeros();
     }
 
     public BigDecimal resetPi(){
