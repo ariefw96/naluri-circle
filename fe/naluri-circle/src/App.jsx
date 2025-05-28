@@ -1,12 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 
 function App() {
-  const backendBaseUrl = 'http://localhost:8080'
+  const backendBaseUrl = import.meta.env.VITE_BACKEND_BASE_URL
+  console.log("backend", backendBaseUrl)
   const [pi, setPi] = useState(0)
   const [diameter, setDiameter] = useState(0) // <-- ini untuk textbox
   const [circumference, setCircumference] = useState('')
+
+  useEffect(() => {
+
+    setDiameter(1392684);
+
+    // return () => {
+    //   console.log('Component unmounted!');
+    // };
+  }, []);
 
   const getPi = async () => {
     try {
@@ -51,10 +61,10 @@ function App() {
         <div>
           <p>Enter diameter of sun (in KM): </p>
           <input
-          value={diameter}
-          onChange={(e) => setDiameter(e.target.value)}
-          placeholder="Diameter (in KM)"
-        />
+            value={diameter}
+            onChange={(e) => setDiameter(e.target.value)}
+            placeholder="Diameter (in KM)"
+          />
         </div>
 
         <button onClick={calculate}>Calculate</button>
